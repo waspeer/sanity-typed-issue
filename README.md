@@ -10,21 +10,21 @@ This readme outlines the steps to take to reproduce an error I encountered while
 
 ### Add Minimal Version of Sanity Typed
 
-Commit: 38e587a2a78e106a35c7f424f81f3c2af6058e04
+Commit: [38e587a2a78e106a35c7f424f81f3c2af6058e04](https://github.com/waspeer/sanity-typed-issue/commit/38e587a2a78e106a35c7f424f81f3c2af6058e04)
 
 - Set up a [NPM Workspace](https://docs.npmjs.com/cli/v7/using-npm/workspaces) to utilize local dependencies from `@sanity-typed/types`. Included only `tsconfig`, `types`, and `utils` for minimal setup.
 - Built the types package using `npm run build` in the `types` folder, with `tsup.config.ts` from the original repository. (Note that the `dist` folder is not included in the repository, so to reproduce this step, you'll have to build the package yourself.)
 
 ### Add Sanity Studio
 
-Commit: 2147524f3b46a13efc0b1c2f3c47f2cb365b365a
+Commit: [2147524f3b46a13efc0b1c2f3c47f2cb365b365a](https://github.com/waspeer/sanity-typed-issue/commit/2147524f3b46a13efc0b1c2f3c47f2cb365b365a)
 
 - Created a new `sanity-studio` package running `pnpm create sanity@latest`.
 - Installed necessary dependencies with `pnpm`.
 
 ### Install Local Sanity Typed and Trigger Resolution Error
 
-Commit: 167576d18d943b03676cd70b9ec402fd7e5a9be9
+Commit: [167576d18d943b03676cd70b9ec402fd7e5a9be9](https://github.com/waspeer/sanity-typed-issue/commit/167576d18d943b03676cd70b9ec402fd7e5a9be9)
 
 - Installed the local `types` package in `sanity-studio` using `pnpm add ../sanity-typed/types`.
 - Integrated the schema as [suggested in the usage section of sanity-typed](https://github.com/saiichihashimoto/sanity-typed/tree/main/packages/types#usage).
@@ -36,7 +36,7 @@ Uncaught error: The requested module '/@fs/Users/wannes/Projecten/Web/waspeer/sa
 
 ### Triggering the `module not defined` Error
 
-Commit: 4606b0b2cc396fafcdc4699b0f0219d6f8684bba
+Commit: [4606b0b2cc396fafcdc4699b0f0219d6f8684bba](https://github.com/waspeer/sanity-typed-issue/commit/4606b0b2cc396fafcdc4699b0f0219d6f8684bba)
 
 I triggered this error while debbugging the previous error. I just wanted to include it here to show how I encountered it.
 
@@ -57,7 +57,7 @@ ReferenceError: module is not defined
 
 ### Building the Types Package as ESM
 
-Commit: a2fb3d6bc6d0e8ad013e83ad2a484bef1a6f9566
+Commit: [a2fb3d6bc6d0e8ad013e83ad2a484bef1a6f9566](https://github.com/waspeer/sanity-typed-issue/commit/a2fb3d6bc6d0e8ad013e83ad2a484bef1a6f9566)
 
 - Built the `types` package to ESM using `tsup`. (To reproduce this step, run `npm run build-esm` in the `types` folder.)
 - Changed the `main` and `types` fields in package.json to export the ESM files.
