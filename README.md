@@ -7,3 +7,16 @@ Reproduction for https://github.com/saiichihashimoto/sanity-typed/issues/394
 - I created a sanity-studio package with `pnpm create sanity@latest` and installed dependencies with `pnpm`.
 - I installed the local `types` package running `pnpm add ../sanity-typed/types` inside the `sanity-studio` folder and added [the schema provided in the readme](https://github.com/saiichihashimoto/sanity-typed/tree/main/packages/types#usage).
 - This results in the following error: `Uncaught error: The requested module '/@fs/Users/wannes/Projecten/Web/waspeer/sanity-typed-issue/sanity-typed/types/dist/index.js?t=1701806909825' does not provide an export named 'defineArrayMember'`
+- Reverting back to importing from `sanity` removes this error. I added some lines to debug this problem:
+
+```ts
+import * as sanityTypedTypes from '@sanity-typed/types'
+console.log('sanityTypedTypes', sanityTypedTypes)
+```
+
+This resulted in the error [I remembered and mentioned in the issue](https://github.com/saiichihashimoto/sanity-typed/issues/394#issuecomment-1837611478):
+
+```
+ReferenceError: module is not defined
+    at http://localhost:3333/@fs/Users/wannes/Projecten/Web/waspeer/sanity-typed-issue/sanity-typed/types/dist/index.js:32:1
+```

@@ -1,12 +1,15 @@
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 
-// import {defineConfig} from 'sanity'
-import {defineConfig} from '@sanity-typed/types'
-import type {InferSchemaValues} from '@sanity-typed/types'
+import {defineConfig} from 'sanity'
+// import {defineConfig} from '@sanity-typed/types'
+// import type {InferSchemaValues} from '@sanity-typed/types'
 
-// import {defineArrayMember, defineField, defineType} from 'sanity'
-import {defineArrayMember, defineField, defineType} from '@sanity-typed/types'
+import {defineArrayMember, defineField, defineType} from 'sanity'
+// import {defineArrayMember, defineField, defineType} from '@sanity-typed/types'
+
+import * as sanityTypedTypes from '@sanity-typed/types'
+console.log('sanityTypedTypes', sanityTypedTypes)
 
 const product = defineType({
   name: 'product',
@@ -50,4 +53,4 @@ const config = defineConfig({
 export default config
 
 /** Typescript type of all types! */
-export type SanityValues = InferSchemaValues<typeof config>
+// export type SanityValues = InferSchemaValues<typeof config>
