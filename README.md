@@ -20,3 +20,4 @@ This resulted in the error [I remembered and mentioned in the issue](https://git
 ReferenceError: module is not defined
     at http://localhost:3333/@fs/Users/wannes/Projecten/Web/waspeer/sanity-typed-issue/sanity-typed/types/dist/index.js:32:1
 ```
+- Adding a `build-esm` script to the `types` package and changing `main` field in `package.json` to convert it to an ESM package fixes the problem.
